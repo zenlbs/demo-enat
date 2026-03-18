@@ -1,0 +1,100 @@
+name: Frontend Production Deployment
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+    outputs:
+      image-uri: ${{ steps.build-image.outputs.image-uri }}
+      image-tag: ${{ steps.set-tag.outputs.tag }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set image tag
+        id: set-tag
+        run: echo "tag=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-southeast-1
+          role-to-assume: arn:aws:iam::478581585074:role/github-action
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        with:
+          mask-password: "true"
+
+      - name: Build, tag, and push docker image to Amazon ECR
+        id: build-image
+        env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          REPOSITORY: ${{ github.event.repository.name }}
+          IMAGE_TAG: ${{ steps.set-tag.outputs.tag }}
+        run: |
+          docker build -f Dockerfile.production -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          echo "Image pushed to ECR: $REGISTRY/$REPOSITORY:$IMAGE_TAG"
+          echo "image-uri=$REGISTRY/$REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: build
+    environment: production
+
+    steps:
+      - name: Install yq
+        run: |
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+
+      - name: Update image tag in devops repo
+        env:
+          DEVOPS_SSH_KEY: ${{ secrets.DEVOPS_SSH_PRIVATE_KEY }}
+          SERVICE_NAME: ${{ github.event.repository.name }}
+          IMAGE_TAG: ${{ needs.build.outputs.image-tag }}
+          IMAGE_URI: ${{ needs.build.outputs.image-uri }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$DEVOPS_SSH_KEY" | base64 -d > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
+          git clone git@github.com:zenlbs/devops.git
+          cd devops
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          VALUES_FILE="apps/${SERVICE_NAME}/values.production.yaml"
+
+          if [ -f "$VALUES_FILE" ]; then
+            yq e '.app.image.tag = "'"${IMAGE_TAG}"'"' -i "$VALUES_FILE"
+          else
+            mkdir -p "apps/${SERVICE_NAME}"
+            cat > "$VALUES_FILE" << EOF
+          app:
+            image:
+              tag: "${IMAGE_TAG}"
+          EOF
+          fi
+
+          git add "$VALUES_FILE"
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update ${SERVICE_NAME} production image to ${IMAGE_TAG}"
+            git push origin main
+            echo "Successfully updated ${SERVICE_NAME} production deployment to ${IMAGE_TAG}"
+          fi
