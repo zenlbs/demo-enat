@@ -60,7 +60,7 @@ export default function LoginPage() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-white/60 text-sm leading-relaxed"
           >
-            {"ENAT AI Content Factory \u2014 Nền tảng sáng tạo nội dung bằng AI dành cho cộng đồng ENAT"}
+            {"ENAT Creator Hub \u2014 Cộng đồng sáng tạo nội dung làm đẹp"}
           </motion.p>
         </div>
       </div>

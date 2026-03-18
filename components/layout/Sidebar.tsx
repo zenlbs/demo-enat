@@ -12,6 +12,8 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
+  Gift,
+  GraduationCap,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -22,6 +24,8 @@ const navItems = [
   { href: "/content", label: "Nội dung", icon: FileText },
   { href: "/dashboard", label: "Hiệu suất", icon: BarChart3 },
   { href: "/insights", label: "AI Insights", icon: BrainCircuit },
+  { href: "/referral", label: "Mã giới thiệu", icon: Gift },
+  { href: "/training", label: "Đào tạo", icon: GraduationCap },
   { href: "/admin", label: "Quản trị", icon: Settings },
 ];
 
@@ -47,7 +51,8 @@ export default function Sidebar() {
             exit={{ opacity: 0 }}
           >
             <div className="text-white font-bold text-lg">ENAT</div>
-            <div className="text-white/50 text-xs">Content Factory</div>
+            <div className="text-white/50 text-xs">Creator Hub</div>
+            <div className="text-white/30 text-[10px] mt-0.5">Cộng đồng sáng tạo</div>
           </motion.div>
         )}
       </div>

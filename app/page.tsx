@@ -159,7 +159,7 @@ export default function Home() {
               >
                 <Sparkles className="w-4 h-4 text-enat-gold" />
                 <span className="text-sm font-medium text-white/90">
-                  ENAT AI Content Factory
+                  ENAT Creator Hub
                 </span>
               </motion.div>
 
@@ -536,7 +536,7 @@ export default function Home() {
               Bắt đầu hành trình sáng tạo
             </h2>
             <p className="text-lg text-white/70 max-w-xl mx-auto mb-8">
-              Hàng nghìn creator đã kiếm được thu nhập từ ENAT Content Factory.
+              Hàng nghìn creator đã kiếm được thu nhập từ ENAT Creator Hub.
               Đến lượt bạn tạo nên điều khác biệt.
             </p>
 
