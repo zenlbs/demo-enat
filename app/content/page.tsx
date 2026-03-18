@@ -200,6 +200,7 @@ export default function ContentPage() {
                             src={item.thumbnail}
                             alt={item.title}
                             fill
+                            sizes="80px"
                             className="object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                         </div>

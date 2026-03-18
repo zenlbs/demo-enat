@@ -129,6 +129,7 @@ export default function ChallengesPage() {
                         src={challenge.coverImage}
                         alt={challenge.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -183,7 +184,7 @@ export default function ChallengesPage() {
                           <div className="flex items-center gap-1.5">
                             <Clock size={14} className="text-enat-red" />
                             <span className="text-sm font-semibold text-enat-red">
-                              Con {days} ngay
+                              Còn {days} ngày
                             </span>
                           </div>
                         )}
@@ -191,7 +192,7 @@ export default function ChallengesPage() {
                           <div className="flex items-center gap-1.5">
                             <Clock size={14} className="text-enat-gold" />
                             <span className="text-sm font-semibold text-enat-gold">
-                              Con {days} ngay
+                              Còn {days} ngày
                             </span>
                           </div>
                         )}
@@ -238,7 +239,7 @@ export default function ChallengesPage() {
         >
           <Trophy size={48} className="text-zinc-300 mx-auto mb-4" />
           <p className="text-zinc-400 text-lg">
-            Khong co thu thach nao trong danh muc nay
+            Không có thử thách nào trong danh mục này
           </p>
         </motion.div>
       )}

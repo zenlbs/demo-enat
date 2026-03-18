@@ -199,7 +199,7 @@ export default function Home() {
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
-                  href="/ai-studio"
+                  href="/creator-hub"
                   className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold px-8 py-4 rounded-2xl text-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
                 >
                   <Wand2 className="w-5 h-5" />
@@ -411,6 +411,7 @@ export default function Home() {
                       src={challenge.coverImage}
                       alt={challenge.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

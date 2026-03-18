@@ -87,7 +87,7 @@ export default function ChallengeDetailPage({
       <div className="min-h-screen flex items-center justify-center bg-zinc-50">
         <div className="text-center">
           <Trophy size={48} className="text-zinc-300 mx-auto mb-4" />
-          <p className="text-zinc-500 text-lg mb-4">Khong tim thay thu thach</p>
+          <p className="text-zinc-500 text-lg mb-4">Không tìm thấy thử thách</p>
           <Link
             href="/challenges"
             className="text-enat-green hover:underline font-medium"
@@ -118,6 +118,7 @@ export default function ChallengeDetailPage({
           src={challenge.coverImage}
           alt={challenge.title}
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -174,7 +175,7 @@ export default function ChallengeDetailPage({
                 <span className="text-white font-medium text-sm">
                   {challenge.status === "ended"
                     ? "Đã kết thúc"
-                    : `${days} ngay ${hours} gio`}
+                    : `${days} ngày ${hours} giờ`}
                 </span>
               </div>
 
@@ -275,7 +276,7 @@ export default function ChallengeDetailPage({
               {challenge.prizes.length > 0 && (
                 <div className="bg-white rounded-2xl p-6 border border-zinc-100 shadow-sm">
                   <h2 className="text-lg font-bold text-enat-dark mb-4">
-                    Co cau giai thuong
+                    Cơ cấu giải thưởng
                   </h2>
                   <div className="space-y-3">
                     {challenge.prizes.map((prize, i) => (
@@ -332,15 +333,15 @@ export default function ChallengeDetailPage({
                     </p>
                   </div>
                   <div className="flex-1 bg-zinc-50 rounded-xl p-4 text-center">
-                    <p className="text-xs text-zinc-400 mb-1">Thời gian con lai</p>
+                    <p className="text-xs text-zinc-400 mb-1">Thời gian còn lại</p>
                     <p className="font-bold text-enat-red">
                       {challenge.status === "ended"
                         ? "Đã kết thúc"
-                        : `${days} ngay ${hours} gio`}
+                        : `${days} ngày ${hours} giờ`}
                     </p>
                   </div>
                   <div className="flex-1 bg-zinc-50 rounded-xl p-4 text-center">
-                    <p className="text-xs text-zinc-400 mb-1">Nguoi tham gia</p>
+                    <p className="text-xs text-zinc-400 mb-1">Người tham gia</p>
                     <div className="flex items-center justify-center gap-2">
                       <p className="font-bold text-enat-dark">
                         {challenge.participants.toLocaleString()}
@@ -375,12 +376,12 @@ export default function ChallengeDetailPage({
               <div className="bg-white rounded-2xl border border-zinc-100 shadow-sm overflow-hidden">
                 {/* Table header */}
                 <div className="grid grid-cols-[60px_1fr_100px_100px_100px_80px] gap-2 px-6 py-3 bg-zinc-50 text-xs font-semibold text-zinc-400 uppercase tracking-wider">
-                  <span>Hang</span>
-                  <span>Nguoi tham gia</span>
-                  <span className="text-right">Luot xem</span>
-                  <span className="text-right">Luot thich</span>
-                  <span className="text-right">Chia se</span>
-                  <span className="text-right">Diem</span>
+                  <span>Hạng</span>
+                  <span>Người tham gia</span>
+                  <span className="text-right">Lượt xem</span>
+                  <span className="text-right">Lượt thích</span>
+                  <span className="text-right">Chia sẻ</span>
+                  <span className="text-right">Điểm</span>
                 </div>
 
                 {/* Table rows */}
@@ -490,9 +491,9 @@ export default function ChallengeDetailPage({
                     <Link2 size={20} className="text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-enat-dark">Dan Link</h3>
+                    <h3 className="font-bold text-enat-dark">Dán Link</h3>
                     <p className="text-xs text-zinc-400">
-                      Dán link bài đăng tu mạng xã hội
+                      Dán link bài đăng từ mạng xã hội
                     </p>
                   </div>
                 </div>
@@ -521,7 +522,7 @@ export default function ChallengeDetailPage({
                     className="absolute right-2 top-1/2 -translate-y-1/2 bg-enat-green text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-enat-green-light transition-colors flex items-center gap-1"
                   >
                     <Clipboard size={12} />
-                    Dan
+                    Dán
                   </button>
                 </div>
 
@@ -553,11 +554,11 @@ export default function ChallengeDetailPage({
                               <span className="text-xs text-zinc-400 font-medium">
                                 {detectedPlatform
                                   ? platformLabels[detectedPlatform]
-                                  : "Lien ket"}
+                                  : "Liên kết"}
                               </span>
                             </div>
                             <p className="text-sm font-medium text-enat-dark mb-1 truncate">
-                              {challenge.title} - Bai du thi
+                              {challenge.title} - Bài dự thi
                             </p>
                             <p className="text-xs text-zinc-400 truncate">
                               {pastedLink}
@@ -567,7 +568,7 @@ export default function ChallengeDetailPage({
                         <div className="mt-3 pt-3 border-t border-zinc-200 flex items-center justify-between">
                           <span className="text-xs text-enat-green font-medium flex items-center gap-1">
                             <CheckCircle2 size={12} />
-                            San sang gui
+                            Sẵn sàng gửi
                           </span>
                           <button className="bg-enat-green text-white px-4 py-1.5 rounded-lg text-xs font-medium hover:bg-enat-green-light transition-colors">
                             Gửi bài dự thi
@@ -580,7 +581,7 @@ export default function ChallengeDetailPage({
 
                 {!pastedLink && (
                   <p className="text-xs text-zinc-400 mt-2 text-center">
-                    Dán link bài đăng tu Facebook, Instagram hoặc TikTok
+                    Dán link bài đăng từ Facebook, Instagram hoặc TikTok
                   </p>
                 )}
               </motion.div>
@@ -603,23 +604,23 @@ export default function ChallengeDetailPage({
                     <div>
                       <h3 className="font-bold text-white">Creator Hub AI</h3>
                       <p className="text-xs text-white/50">
-                        Tao noi dung chuyen nghiep voi AI
+                        Tạo nội dung chuyên nghiệp với AI
                       </p>
                     </div>
                   </div>
 
                   <p className="text-sm text-white/70 leading-relaxed mb-6">
-                    Su dung suc manh cua AI de tao noi dung chat luong cao cho thu thach.
-                    Tu dong tao video, hinh anh, caption va hashtag phu hop voi
-                    yeu cau cua thu thach.
+                    Sử dụng sức mạnh của AI để tạo nội dung chất lượng cao cho thử thách.
+                    Tự động tạo video, hình ảnh, caption và hashtag phù hợp với
+                    yêu cầu của thử thách.
                   </p>
 
                   <ul className="space-y-2.5 mb-6">
                     {[
-                      "Tu dong tao script video tu de bai",
-                      "Goi y caption & hashtag trending",
-                      "Tao hinh anh/video template chuyen nghiep",
-                      "Phan tich & toi uu noi dung truoc khi dang",
+                      "Tự động tạo script video từ đề bài",
+                      "Gợi ý caption & hashtag trending",
+                      "Tạo hình ảnh/video template chuyên nghiệp",
+                      "Phân tích & tối ưu nội dung trước khi đăng",
                     ].map((feature, i) => (
                       <motion.li
                         key={i}
@@ -643,7 +644,7 @@ export default function ChallengeDetailPage({
                       className="w-full bg-gradient-to-r from-enat-gold to-yellow-400 text-enat-green-dark font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-enat-gold/20 hover:shadow-enat-gold/40 transition-shadow"
                     >
                       <Sparkles size={18} />
-                      Mo Creator Hub
+                      Mở Creator Hub
                     </motion.button>
                   </Link>
                 </div>
