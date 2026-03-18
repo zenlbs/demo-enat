@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ENAT AI Content Factory",
-  description: "Everyone can create beauty content — Nền tảng tạo nội dung AI cho ENAT",
+  title: "ENAT Creator Hub",
+  description: "Cộng đồng sáng tạo nội dung làm đẹp — Nền tảng tạo nội dung AI cho ENAT",
 };
 
 export default function RootLayout({
