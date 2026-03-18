@@ -171,7 +171,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
     <motion.div
       variants={staggerItem}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
-      className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-enat-green/20 transition-all duration-300"
+      className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-enat-green/20 transition-all duration-300 flex flex-col"
     >
       {/* Cover */}
       <div className="relative h-44 overflow-hidden">
@@ -233,7 +233,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
       </div>
 
       {/* Card body */}
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-1">
         <h3 className="text-sm font-bold text-enat-dark mb-2 line-clamp-2 group-hover:text-enat-green transition-colors">
           {course.title}
         </h3>
@@ -281,7 +281,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
+          className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all mt-auto ${
             isPremium
               ? "bg-enat-gold/10 text-enat-gold border border-enat-gold/30 hover:bg-enat-gold/20"
               : hasProgress

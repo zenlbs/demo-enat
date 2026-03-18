@@ -20,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
+      <head>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F5C518'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold' font-size='20' fill='%231A7340'>E</text></svg>" type="image/svg+xml" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
