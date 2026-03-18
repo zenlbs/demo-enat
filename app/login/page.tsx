@@ -48,9 +48,9 @@ export default function LoginPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-3xl font-bold text-white leading-snug mb-4"
           >
-            {"Ai Cũng Có Thể "}
+            {"Cộng Đồng Sáng Tạo "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-enat-yellow via-enat-gold to-enat-yellow gradient-animate">
-              {"Tạo Nội Dung Đẹp"}
+              {"Nội Dung Làm Đẹp"}
             </span>
           </motion.h2>
 
