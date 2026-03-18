@@ -51,7 +51,7 @@ const courses: Course[] = [
     participants: 3420,
     progress: 65,
     image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+      "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&q=80",
     instructor: "Minh Tú",
     category: "TikTok",
   },
@@ -66,7 +66,7 @@ const courses: Course[] = [
     participants: 1856,
     progress: 30,
     image:
-      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
     instructor: "Lan Phương",
     category: "Photography",
   },
@@ -81,7 +81,7 @@ const courses: Course[] = [
     participants: 2741,
     progress: null,
     image:
-      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80",
+      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80",
     instructor: "Hải Yến",
     category: "Instagram",
   },
@@ -96,7 +96,7 @@ const courses: Course[] = [
     participants: 987,
     progress: null,
     image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80",
+      "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800&q=80",
     instructor: "Quốc Anh",
     category: "Branding",
   },
@@ -111,7 +111,7 @@ const courses: Course[] = [
     participants: 4200,
     progress: 10,
     image:
-      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+      "https://images.unsplash.com/photo-1655720828018-edd71de2b476?w=800&q=80",
     instructor: "Bảo Châu",
     category: "AI Tools",
   },
@@ -126,7 +126,7 @@ const courses: Course[] = [
     participants: 1234,
     progress: null,
     image:
-      "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=800&q=80",
+      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
     instructor: "Ngọc Trinh",
     category: "Livestream",
   },

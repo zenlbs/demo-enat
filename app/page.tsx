@@ -169,9 +169,9 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight"
               >
-                Ai Cũng Có Thể{" "}
+                Cộng Đồng Sáng Tạo{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-enat-yellow via-enat-gold to-enat-yellow gradient-animate">
-                  Tạo Nội Dung Đẹp
+                  Nội Dung Làm Đẹp
                 </span>
               </motion.h1>
 
