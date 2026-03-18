@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-enat-green: #1A7340;
+  --color-enat-green-light: #2A9B58;
+  --color-enat-green-dark: #0F2E1C;
+  --color-enat-yellow: #FFF3B0;
+  --color-enat-yellow-light: #FFF9D6;
+  --color-enat-gold: #F5C518;
+  --color-enat-red: #E84B2A;
+  --color-enat-pink: #F5B5C8;
+  --color-enat-blue: #D4E8F0;
+  --color-enat-dark: #1A1A1A;
+  --color-enat-sidebar: #0F2E1C;
+}
+
+body {
+  background: #F8F6F0;
+  color: #1A1A1A;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A7340;
+  border-radius: 3px;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(26, 115, 64, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(26, 115, 64, 0.6); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* Typing cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s infinite;
+  color: #1A7340;
+  font-weight: bold;
+}
+
+/* Organic blob */
+@keyframes blobMove {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%; }
+  75% { border-radius: 60% 30% 50% 40% / 70% 50% 40% 60%; }
+}
+
+.blob {
+  animation: blobMove 10s ease-in-out infinite;
+}
+
+/* Count up */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
