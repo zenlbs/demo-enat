@@ -13,6 +13,10 @@ import {
   Sparkles,
   BookOpen,
   Filter,
+  Camera,
+  Palette,
+  BrainCircuit,
+  Radio,
 } from "lucide-react";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 
@@ -28,7 +32,7 @@ interface Course {
   status: PremiumStatus;
   participants: number;
   progress: number | null;
-  image: string;
+  image: string | null;
   instructor: string;
   category: string;
 }
@@ -37,6 +41,33 @@ const levelColors: Record<Level, string> = {
   "Cơ bản": "bg-emerald-100 text-emerald-700",
   "Nâng cao": "bg-blue-100 text-blue-700",
   "Chuyên gia": "bg-purple-100 text-purple-700",
+};
+
+const categoryStyles: Record<string, { gradient: string; icon: React.ReactNode }> = {
+  TikTok: {
+    gradient: "from-gray-900 via-gray-800 to-black",
+    icon: <svg viewBox="0 0 24 24" className="w-16 h-16 text-white/80" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.72a8.2 8.2 0 004.76 1.52V6.79a4.84 4.84 0 01-1-.1z"/></svg>,
+  },
+  Photography: {
+    gradient: "from-amber-500 via-orange-500 to-red-500",
+    icon: <Camera className="w-16 h-16 text-white/80" />,
+  },
+  Instagram: {
+    gradient: "from-purple-600 via-pink-500 to-orange-400",
+    icon: <svg viewBox="0 0 24 24" className="w-16 h-16 text-white/80" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>,
+  },
+  Branding: {
+    gradient: "from-enat-green-dark via-enat-green to-emerald-500",
+    icon: <Palette className="w-16 h-16 text-white/80" />,
+  },
+  "AI Tools": {
+    gradient: "from-indigo-600 via-violet-600 to-purple-700",
+    icon: <BrainCircuit className="w-16 h-16 text-white/80" />,
+  },
+  Livestream: {
+    gradient: "from-red-600 via-red-500 to-rose-500",
+    icon: <Radio className="w-16 h-16 text-white/80" />,
+  },
 };
 
 const courses: Course[] = [
@@ -51,7 +82,7 @@ const courses: Course[] = [
     participants: 3420,
     progress: 65,
     image:
-      "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&q=80",
+      null,
     instructor: "Minh Tú",
     category: "TikTok",
   },
@@ -66,7 +97,7 @@ const courses: Course[] = [
     participants: 1856,
     progress: 30,
     image:
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80",
+      null,
     instructor: "Lan Phương",
     category: "Photography",
   },
@@ -81,7 +112,7 @@ const courses: Course[] = [
     participants: 2741,
     progress: null,
     image:
-      "https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80",
+      null,
     instructor: "Hải Yến",
     category: "Instagram",
   },
@@ -96,7 +127,7 @@ const courses: Course[] = [
     participants: 987,
     progress: null,
     image:
-      "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800&q=80",
+      null,
     instructor: "Quốc Anh",
     category: "Branding",
   },
@@ -111,7 +142,7 @@ const courses: Course[] = [
     participants: 4200,
     progress: 10,
     image:
-      "https://images.unsplash.com/photo-1655720828018-edd71de2b476?w=800&q=80",
+      null,
     instructor: "Bảo Châu",
     category: "AI Tools",
   },
@@ -126,7 +157,7 @@ const courses: Course[] = [
     participants: 1234,
     progress: null,
     image:
-      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80",
+      null,
     instructor: "Ngọc Trinh",
     category: "Livestream",
   },
@@ -142,16 +173,13 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
       className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-enat-green/20 transition-all duration-300"
     >
-      {/* Cover image */}
+      {/* Cover */}
       <div className="relative h-44 overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={course.image}
-          alt={course.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+        <div className={`w-full h-full bg-gradient-to-br ${categoryStyles[course.category]?.gradient || "from-gray-600 to-gray-800"} flex items-center justify-center group-hover:scale-105 transition-transform duration-500`}>
+          {categoryStyles[course.category]?.icon}
+        </div>
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
         {/* Top badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
@@ -253,7 +281,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+          className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
             isPremium
               ? "bg-enat-gold/10 text-enat-gold border border-enat-gold/30 hover:bg-enat-gold/20"
               : hasProgress
