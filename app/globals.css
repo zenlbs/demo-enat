@@ -32,6 +32,15 @@ body {
   border-radius: 3px;
 }
 
+/* Hide scrollbar but keep scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Animated gradient background */
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }

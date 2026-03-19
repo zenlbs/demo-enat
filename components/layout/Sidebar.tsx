@@ -45,28 +45,26 @@ export default function Sidebar() {
     <motion.aside
       animate={{ width: collapsed ? 72 : 240 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed left-0 top-0 h-screen bg-enat-sidebar flex flex-col z-50"
+      className="fixed left-0 top-0 h-screen bg-enat-sidebar flex flex-col z-50 overflow-hidden"
     >
       {/* Logo */}
       <div className="p-4 flex items-center gap-3 border-b border-white/10">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-enat-gold to-enat-yellow flex items-center justify-center font-bold text-enat-green text-sm shrink-0">
           E
         </div>
-        {!collapsed && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div className="text-white font-bold text-lg">ENAT</div>
-            <div className="text-white/50 text-xs">Creator Hub</div>
-            <div className="text-white/30 text-[10px] mt-0.5">Cộng đồng sáng tạo</div>
-          </motion.div>
-        )}
+        <motion.div
+          animate={{ opacity: collapsed ? 0 : 1, width: collapsed ? 0 : "auto" }}
+          transition={{ duration: 0.2 }}
+          className="overflow-hidden whitespace-nowrap"
+        >
+          <div className="text-white font-bold text-lg">ENAT</div>
+          <div className="text-white/50 text-xs">Creator Hub</div>
+          <div className="text-white/30 text-[10px] mt-0.5">Cộng đồng sáng tạo</div>
+        </motion.div>
       </div>
 
       {/* Nav items */}
-      <nav className="flex-1 p-3 space-y-1">
+      <nav className="flex-1 p-3 space-y-1 overflow-y-auto scrollbar-hide">
         {navItems.map((item) => {
           const isActive =
             pathname === item.href ||
@@ -90,15 +88,13 @@ export default function Sidebar() {
                   />
                 )}
                 <Icon size={20} className="shrink-0" />
-                {!collapsed && (
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-sm font-medium"
-                  >
-                    {item.label}
-                  </motion.span>
-                )}
+                <motion.span
+                  animate={{ opacity: collapsed ? 0 : 1, width: collapsed ? 0 : "auto" }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm font-medium whitespace-nowrap overflow-hidden"
+                >
+                  {item.label}
+                </motion.span>
               </motion.div>
             </Link>
           );
