@@ -14,6 +14,10 @@ import {
   ChevronRight,
   Gift,
   GraduationCap,
+  Radio,
+  Search,
+  Users,
+  FileBarChart,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -24,6 +28,10 @@ const navItems = [
   { href: "/content", label: "Nội dung", icon: FileText },
   { href: "/dashboard", label: "Hiệu suất", icon: BarChart3 },
   { href: "/insights", label: "AI Insights", icon: BrainCircuit },
+  { href: "/social-listening", label: "Social Listening", icon: Radio },
+  { href: "/keywords", label: "Từ khóa", icon: Search },
+  { href: "/influencers", label: "Influencer Hub", icon: Users },
+  { href: "/reports", label: "Báo cáo", icon: FileBarChart },
   { href: "/referral", label: "Mã giới thiệu", icon: Gift },
   { href: "/training", label: "Đào tạo", icon: GraduationCap },
   { href: "/admin", label: "Quản trị", icon: Settings },
