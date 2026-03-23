@@ -1,9 +1,9 @@
 export const challenges = [
   {
     id: "1",
-    title: "Thử Thách Làn Da Khỏe Mạnh",
-    description: "Chia sẻ bí quyết chăm sóc da hàng ngày cùng ENAT 400. Tạo video/hình ảnh thể hiện quy trình skincare của bạn và chia sẻ trải nghiệm thực tế.",
-    coverImage: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&h=400&fit=crop",
+    title: "#HộiĐồngE Khoe Da Mộc, Đẹp Đồng Điệu Từ Gốc",
+    description: "Ai nói da đẹp là nhờ makeup. Da khỏe đẹp đồng điệu từ trong ra ngoài, cho dù lúc makeup hay khi tẩy trang vẫn tự tin.",
+    coverImage: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&h=400&fit=crop",
     prize: "50.000.000 VNĐ",
     deadline: "2026-04-15",
     participants: 1247,
@@ -12,7 +12,7 @@ export const challenges = [
     platform: ["facebook", "instagram", "tiktok"] as const,
     rules: [
       "Video/hình ảnh phải có sản phẩm ENAT 400",
-      "Sử dụng hashtag #ENATLanDaKhoeMạnh",
+      "Sử dụng hashtag #HộiĐồngE",
       "Nội dung phải là trải nghiệm thực tế",
       "Tối thiểu 30 giây cho video",
       "Đăng trên ít nhất 1 nền tảng",
@@ -25,9 +25,9 @@ export const challenges = [
   },
   {
     id: "2",
-    title: "Beauty Hack Cùng ENAT",
-    description: "Sáng tạo beauty hack độc đáo với ENAT 400. Hướng dẫn mọi người cách sử dụng Vitamin E trong quy trình làm đẹp hàng ngày.",
-    coverImage: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=400&fit=crop",
+    title: "WHAT'S INSIDE #HỘIĐỒNGE BAG?",
+    description: "Những món đồ trong túi thể hiện lifestyle của bạn nhưng không thể thiếu 1 bước block gốc tự do đơn giản với vitamin E.",
+    coverImage: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&h=400&fit=crop",
     prize: "30.000.000 VNĐ",
     deadline: "2026-04-30",
     participants: 856,
@@ -36,7 +36,7 @@ export const challenges = [
     platform: ["tiktok", "instagram"] as const,
     rules: [
       "Nội dung beauty hack phải liên quan đến Vitamin E",
-      "Sử dụng hashtag #BeautyHackENAT",
+      "Sử dụng hashtag #HộiĐồngE",
       "Video từ 15-60 giây",
     ],
     prizes: [
@@ -46,9 +46,9 @@ export const challenges = [
   },
   {
     id: "3",
-    title: "Trước & Sau Với ENAT",
-    description: "Chia sẻ hành trình biến đổi làn da sau khi sử dụng ENAT 400. Chụp ảnh before/after và kể câu chuyện của bạn.",
-    coverImage: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=400&fit=crop",
+    title: "#HỘIĐỒNGE BLOCK GỐC TỰ DO \"5 GIÂY 6 NGÀN\"",
+    description: "Chăm da đẹp đồng điệu không phí routine tiền triệu nhờ bí kíp block gốc tự do cho muôn kiểu chăm da.",
+    coverImage: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=400&fit=crop",
     prize: "40.000.000 VNĐ",
     deadline: "2026-05-15",
     participants: 432,
