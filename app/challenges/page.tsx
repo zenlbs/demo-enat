@@ -101,10 +101,10 @@ export default function ChallengesPage() {
       <AnimatePresence mode="wait">
         <motion.div
           key={activeFilter}
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.15 } }}
+          transition={{ duration: 0.3 }}
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
         >
           {filtered.map((challenge, index) => {
@@ -116,7 +116,8 @@ export default function ChallengesPage() {
             return (
               <motion.div
                 key={challenge.id}
-                variants={staggerItem}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 whileHover={{ scale: 1.03, y: -4 }}
                 className="group"
