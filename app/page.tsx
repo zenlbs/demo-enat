@@ -169,7 +169,7 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight"
               >
-                Cộng Đồng Sáng Tạo{" "}
+                Hội Đồng Sáng Tạo{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-enat-yellow via-enat-gold to-enat-yellow gradient-animate">
                   Nội Dung Làm Đẹp
                 </span>
@@ -181,7 +181,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl"
               >
-                Nền tảng sáng tạo nội dung bằng AI dành cho cộng đồng ENAT.
+                Nền tảng sáng tạo nội dung bằng AI dành cho Hội đồng E của ENAT.
                 Tham gia thử thách, tạo content viral và nhận thưởng xứng đáng.
               </motion.p>
 

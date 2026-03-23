@@ -24,19 +24,19 @@ import { createContext, useContext, useState } from "react";
 export const SidebarContext = createContext({ collapsed: false });
 
 const navItems = [
-  { href: "/", label: "Trang chủ", icon: Home },
-  { href: "/challenges", label: "Thử thách", icon: Trophy },
+  { href: "/", label: "Home", icon: Home },
+  { href: "/challenges", label: "Challenges", icon: Trophy },
   { href: "/creator-hub", label: "Creator Hub", icon: Wand2 },
-  { href: "/content", label: "Nội dung", icon: FileText },
-  { href: "/dashboard", label: "Hiệu suất", icon: BarChart3 },
+  { href: "/content", label: "Content", icon: FileText },
+  { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
   { href: "/insights", label: "AI Insights", icon: BrainCircuit },
   { href: "/social-listening", label: "Social Listening", icon: Radio },
-  { href: "/keywords", label: "Từ khóa", icon: Search },
+  { href: "/keywords", label: "Keywords", icon: Search },
   { href: "/influencers", label: "Influencer Hub", icon: Users },
-  { href: "/reports", label: "Báo cáo", icon: FileBarChart },
-  { href: "/referral", label: "Mã giới thiệu", icon: Gift },
-  { href: "/training", label: "Đào tạo", icon: GraduationCap },
-  { href: "/admin", label: "Quản trị", icon: Settings },
+  { href: "/reports", label: "Reports", icon: FileBarChart },
+  { href: "/referral", label: "Referral", icon: Gift },
+  { href: "/training", label: "Training", icon: GraduationCap },
+  { href: "/admin", label: "Admin", icon: Settings },
 ];
 
 export default function Sidebar() {
