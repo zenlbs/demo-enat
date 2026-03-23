@@ -48,7 +48,7 @@ export const challenges = [
     id: "3",
     title: "#HỘIĐỒNGE BLOCK GỐC TỰ DO \"5 GIÂY 6 NGÀN\"",
     description: "Chăm da đẹp đồng điệu không phí routine tiền triệu nhờ bí kíp block gốc tự do cho muôn kiểu chăm da.",
-    coverImage: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=400&fit=crop",
+    coverImage: "/challenges/block-3.png",
     prize: "40.000.000 VNĐ",
     deadline: "2026-05-15",
     participants: 432,
