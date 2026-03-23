@@ -57,7 +57,7 @@ export default function ChallengesPage() {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-enat-gold to-enat-yellow flex items-center justify-center">
             <Trophy size={20} className="text-enat-green-dark" />
           </div>
-          <h1 className="text-2xl font-bold text-enat-dark">Thử Thách</h1>
+          <h1 className="text-2xl font-bold text-enat-dark">Thử thách #HộiĐồngE block gốc tự do</h1>
         </div>
         <p className="text-zinc-500 ml-[52px]">
           Tham gia các thử thách sáng tạo nội dung cùng ENAT và nhận giải thưởng hấp dẫn
